@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesero</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+<body>
+  <header>
+    <h1>📝 Mesero</h1>
+    <a href="#" id="salir">Salir</a>
+  </header>
+
+  <main>
+    <!-- Pedidos que la cocina ya terminó (de todas las mesas) -->
+    <div id="listos"></div>
+
+    <h2>Mesas</h2>
+    <div class="resumen" id="resumenMesas"></div>
+    <div class="cuadricula cuadricula-mesas" id="mesas"></div>
+
+    <!-- Si la mesa está libre: se abre con el número de comensales -->
+    <div id="zonaAbrir" style="display:none" class="tarjeta">
+      <h2 id="tituloAbrir">Abrir mesa</h2>
+      <label for="inpComensales">¿Cuántas personas llegaron?</label>
+      <input type="number" id="inpComensales" min="1" max="20" value="2">
+      <button id="btnAbrir">Abrir mesa</button>
+    </div>
+
+    <!-- Si la mesa está ocupada: se toma el pedido -->
+    <div id="zonaPedido" style="display:none">
+      <h2 id="tituloPedido">Pedido</h2>
+      <p class="gris" id="infoMesa"></p>
+      <div class="fila-botones">
+        <button class="secundario" id="btnCuenta">🧾 Pedir la cuenta</button>
+        <button class="secundario" id="btnCancelar">Cancelar mesa</button>
+      </div>
+      <div id="mensaje"></div>
+
+      <!-- Dos vistas: tomar el pedido (lista) o ver la carta tal como la ve el cliente en el QR -->
+      <div class="filtros" id="vistas">
+        <button data-vista="pedido" class="activo">🛎 Tomar pedido</button>
+        <button data-vista="carta">📖 Ver carta (como en el QR)</button>
+      </div>
+
+      <div id="vistaPedido">
+        <div class="filtros" id="filtros"></div>
+        <div class="lista-platos" id="carta"></div>
+      </div>
+
+      <div id="vistaCarta" style="display:none">
+        <div class="hojas-carta">
+          <img src="carta/pagina-1.jpg" alt="Portada de la carta">
+          <img src="carta/pagina-2.jpg" alt="Carta: entradas, platos fuertes, cazuelas y arroces" loading="lazy">
+          <img src="carta/pagina-3.jpg" alt="Carta: filetes y pescados, otras especialidades, menú infantil" loading="lazy">
+          <img src="carta/pagina-4.jpg" alt="Carta: cevichería, postres, bebidas, cervezas, cocteles, vinos y cafés" loading="lazy">
+        </div>
+      </div>
+
+      <h2 id="tituloMesa">Pedidos de la mesa</h2>
+      <div id="misPedidos"></div>
+    </div>
+  </main>
+
+  <!-- Barra fija con el resumen del pedido -->
+  <div class="barra-carrito" id="barra" style="display:none">
+    <label for="nota">Nota para la cocina (opcional)</label>
+    <input type="text" id="nota" maxlength="100" placeholder="Ej: sin cebolla, bien cocido">
+    <button id="btnEnviar">Enviar a cocina</button>
+    <strong id="resumen" style="margin-left:10px">Pedido vacío</strong>
+  </div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/mesero.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cocina</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+<body>
+  <header>
+    <h1>👨‍🍳 Cocina</h1>
+    <a href="#" id="salir">Salir</a>
+  </header>
+
+  <main>
+    <p id="vacio" class="gris">No hay pedidos pendientes. ✔</p>
+
+    <div class="columnas">
+      <div>
+        <h2>Recibidos</h2>
+        <div id="col-recibido"></div>
+      </div>
+      <div>
+        <h2>En preparación</h2>
+        <div id="col-preparando"></div>
+      </div>
+      <div>
+        <h2>Listos para entregar</h2>
+        <div id="col-listo"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/datos.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/cocina.js"></script>
+</body>
+</html>

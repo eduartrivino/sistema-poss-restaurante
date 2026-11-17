@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caja</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+<body class="pagina-admin">
+  <header>
+    <h1>💵 Caja</h1>
+    <div id="enlaces"><a href="#" id="salir">Salir</a></div>
+  </header>
+
+  <main>
+    <div id="msgGeneral"></div>
+
+    <!-- Si la caja está cerrada: abrir turno -->
+    <section id="zonaCerrada" style="display:none">
+      <div class="tarjeta login">
+        <h2>Caja cerrada</h2>
+        <p class="gris">Para cobrar, primero abre la caja del turno e indica cuánto efectivo hay en el cajón.</p>
+        <label for="inpInicial">Efectivo inicial en el cajón</label>
+        <input type="number" id="inpInicial" min="0" step="1000" value="0">
+        <div id="msgAbrir"></div>
+        <button id="btnAbrirCaja">Abrir caja</button>
+      </div>
+      <div id="ultimoCierre"></div>
+    </section>
+
+    <!-- Caja abierta -->
+    <section id="zonaAbierta" style="display:none">
+      <div class="filtros" id="pestanas">
+        <button data-tab="cobrar" class="activo">Cobrar mesas</button>
+        <button data-tab="turno">Turno y cierre</button>
+      </div>
+
+      <div id="tab-cobrar">
+        <h2>Mesas y cuentas</h2>
+        <p class="gris">Toca una mesa para ver su cuenta y cobrarla.</p>
+        <div class="resumen" id="resumenMesas"></div>
+        <div class="cuadricula cuadricula-mesas" id="mesas"></div>
+        <div id="cuenta"></div>
+        <div id="zonaRecibo"></div>
+      </div>
+
+      <div id="tab-turno" style="display:none">
+        <h2>Turno de caja</h2>
+        <div id="resumenTurno"></div>
+        <div class="tarjeta">
+          <h3>Cerrar la caja</h3>
+          <p class="gris">Cuenta el efectivo que hay en el cajón y escríbelo. El sistema compara con lo que debería haber.</p>
+          <label for="inpContado">Efectivo contado en el cajón</label>
+          <input type="number" id="inpContado" min="0" step="1000">
+          <div id="msgCierre"></div>
+          <button id="btnCerrarCaja">Cerrar caja</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/datos.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/caja.js"></script>
+</body>
+</html>

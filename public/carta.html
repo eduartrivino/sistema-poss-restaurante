@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta · Frutos del Río</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Carta de los clientes: las páginas originales de la carta, tal cual */
+    body.carta-clientes { background: #1b1b1b; }
+    .carta-clientes main { max-width: 640px; margin: 0 auto; padding: 0; }
+    .carta-clientes .hoja { display: block; width: 100%; height: auto; }
+    .carta-clientes .pie { text-align: center; padding: 16px; background: #1b1b1b; }
+    .carta-clientes .pie a { color: #fff; margin: 0 10px; }
+  </style>
+</head>
+<body class="carta-clientes">
+  <!-- Esta página es SOLO para los clientes (la abre el código QR). Muestra la carta original, tal cual. -->
+  <main>
+    <img class="hoja" src="carta/pagina-1.jpg" alt="Restaurante Frutos del Río: portada de la carta">
+    <img class="hoja" src="carta/pagina-2.jpg" alt="Carta: entradas, platos fuertes, cazuelas y arroces" loading="lazy">
+    <img class="hoja" src="carta/pagina-3.jpg" alt="Carta: filetes y pescados, otras especialidades, menú infantil" loading="lazy">
+    <img class="hoja" src="carta/pagina-4.jpg" alt="Carta: cevichería, postres, bebidas, cervezas, cocteles, vinos y cafés" loading="lazy">
+    <div class="pie">
+      <a href="carta/Carta-Frutos-del-Rio.pdf" download>Descargar carta (PDF)</a>
+      <a href="lista.html">Ver disponibilidad de hoy</a>
+    </div>
+  </main>
+</body>
+</html>
+

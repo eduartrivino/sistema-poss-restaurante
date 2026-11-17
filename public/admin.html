@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrador</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+<body class="pagina-admin">
+  <header>
+    <h1>⚙️ Administrador</h1>
+    <div>
+      <a href="mesero.html">Mesero</a> · <a href="cocina.html">Cocina</a> · <a href="caja.html">Caja</a> · <a href="#" id="salir">Salir</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="filtros" id="pestanas">
+      <button data-tab="ventas" class="activo">Ventas</button>
+      <button data-tab="menu">Menú</button>
+      <button data-tab="qr">QR para el celular</button>
+      <button data-tab="ajustes">Ajustes</button>
+    </div>
+
+    <!-- Ventas del día y turnos de caja -->
+    <section id="tab-ventas">
+      <h2>Ventas de hoy</h2>
+      <div id="resumenVentas"></div>
+      <h2>Turnos de caja</h2>
+      <div id="listaTurnos"></div>
+    </section>
+
+    <!-- Menú -->
+    <section id="tab-menu" style="display:none">
+      <h2>Menú del restaurante</h2>
+      <p class="gris">Lo que cambies aquí lo ven al instante los clientes (carta) y el mesero.</p>
+      <div id="listaMenu"></div>
+      <div class="tarjeta">
+        <h3>Agregar un plato nuevo</h3>
+        <label for="nuevoNombre">Nombre</label>
+        <input type="text" id="nuevoNombre" maxlength="60">
+        <label for="nuevaCategoria">Categoría</label>
+        <input type="text" id="nuevaCategoria" list="listaCategorias" maxlength="30" placeholder="Ej: Entradas">
+        <datalist id="listaCategorias"></datalist>
+        <label for="nuevoPrecio">Precio</label>
+        <input type="number" id="nuevoPrecio" min="0" step="500">
+        <label for="nuevaDescripcion">Descripción</label>
+        <input type="text" id="nuevaDescripcion" maxlength="255">
+        <label for="nuevoEmoji">Emoji (se ve si el plato no tiene foto)</label>
+        <input type="text" id="nuevoEmoji" maxlength="4" value="🍽️">
+        <label for="nuevaImagen">Foto (opcional): img/mi-plato.jpg o una dirección https://</label>
+        <input type="text" id="nuevaImagen" maxlength="120">
+        <div id="msgNuevo"></div>
+        <button id="btnAgregar">Agregar a la carta</button>
+      </div>
+      <button class="secundario" id="btnRestaurar">Restaurar la carta original</button>
+    </section>
+
+    <!-- QR -->
+    <section id="tab-qr" style="display:none">
+      <h2>Código QR de la carta digital</h2>
+      <div class="tarjeta">
+        <p>Los clientes escanean este QR con su celular y ven la carta (<code>carta.html</code>). Imprímelo y ponlo en las mesas.</p>
+        <div id="zonaIps"></div>
+        <label for="inpBase">Dirección del sitio (déjala vacía para usar la de tu WiFi)</label>
+        <input type="text" id="inpBase" placeholder="Ej: https://mi-restaurante.onrender.com">
+        <label for="selDiseno">Diseño para imprimir</label>
+        <select id="selDiseno">
+          <option value="portada">Portada del restaurante con el QR</option>
+          <option value="tarjeta">Tarjeta sencilla con el QR</option>
+        </select>
+        <button id="btnGenerar">Generar QR</button>
+        <button class="secundario" id="btnImprimirQR">🖨 Imprimir QR</button>
+        <div id="alertaQR"></div>
+      </div>
+      <div id="zonaQR"></div>
+    </section>
+
+    <!-- Ajustes -->
+    <section id="tab-ajustes" style="display:none">
+      <h2>Ajustes</h2>
+      <div class="tarjeta">
+        <h3>Restaurante</h3>
+        <label for="cfgNombre">Nombre</label>
+        <input type="text" id="cfgNombre" maxlength="40">
+        <label for="cfgMesas">Número de mesas</label>
+        <input type="number" id="cfgMesas" min="1" max="40">
+        <div id="msgConfig"></div>
+        <button id="btnConfig">Guardar</button>
+      </div>
+      <div class="tarjeta">
+        <h3>Cambiar una clave</h3>
+        <label for="claveRol">Rol</label>
+        <select id="claveRol">
+          <option value="mesero">Mesero</option>
+          <option value="cocina">Cocina</option>
+          <option value="caja">Caja</option>
+          <option value="administrador">Administrador</option>
+        </select>
+        <label for="claveNueva">Nueva clave (mínimo 4 caracteres)</label>
+        <input type="password" id="claveNueva" maxlength="50">
+        <div id="msgClave"></div>
+        <button id="btnClave">Cambiar clave</button>
+      </div>
+      <button class="secundario" id="btnBorrar">Borrar pedidos, ventas y turnos de prueba</button>
+    </section>
+  </main>
+
+  <script src="js/datos.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

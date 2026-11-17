@@ -1,0 +1,475 @@
+/* ============================================================
+   style.css  →  estilos compartidos por todas las páginas
+   ============================================================ */
+
+/* Colores del sitio: si quieres cambiar el tema, cambia solo estos */
+:root {
+  --naranja: #c2410c;
+  --naranja-claro: #fde7d3;
+  --fondo: #fbf6ef;
+  --texto: #2b2320;
+  --gris: #6f625a;
+  --verde: #d6f0d6;
+  --borde: #e8dccd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+/* ----- Barra superior ----- */
+header {
+  background: var(--naranja);
+  color: white;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+header a {
+  color: white;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h2 {
+  color: var(--naranja);
+}
+
+/* ----- Tarjetas y cuadrículas ----- */
+.tarjeta {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* ----- Botones ----- */
+button {
+  background: var(--naranja);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+button.secundario {
+  background: var(--naranja-claro);
+  color: var(--naranja);
+}
+
+/* ----- Formularios ----- */
+input,
+select,
+textarea {
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+label {
+  font-size: 14px;
+  color: var(--gris);
+}
+
+/* ----- Productos de la carta ----- */
+.producto {
+  text-align: center;
+}
+
+.producto .emoji {
+  font-size: 42px;
+}
+
+.producto .precio {
+  color: var(--naranja);
+  font-weight: bold;
+}
+
+.cantidad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cantidad button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+/* ----- Filtros de categoría ----- */
+.filtros {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filtros button {
+  background: white;
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+}
+
+.filtros button.activo {
+  background: var(--naranja);
+  color: white;
+}
+
+/* ----- Barra del carrito (abajo de la carta) ----- */
+.barra-carrito {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  border-top: 2px solid var(--naranja);
+  padding: 12px 16px;
+}
+
+/* ----- Fotos de los platos ----- */
+.foto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--naranja-claro);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-emoji {
+  font-size: 54px;
+}
+
+.foto img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plato {
+  padding: 10px;
+  margin-bottom: 0;
+}
+
+.plato-info {
+  padding: 8px 4px 2px;
+}
+
+.plato-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.plato .precio {
+  color: var(--naranja);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.plato.en-pedido {
+  border: 2px solid var(--naranja);
+}
+
+/* ----- Módulos de la página de inicio ----- */
+.modulo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.modulo:hover {
+  border-color: var(--naranja);
+}
+
+.modulo .icono {
+  font-size: 40px;
+}
+
+/* ----- Etiqueta de la mesa en el encabezado ----- */
+.etiqueta {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  padding: 4px 12px;
+}
+
+.etiqueta:empty {
+  display: none;
+}
+
+/* ----- Etiquetas de estado ----- */
+.estado {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.estado.recibido   { background: var(--naranja-claro); color: var(--naranja); }
+.estado.preparando { background: #fff3b8; color: #7a5c00; }
+.estado.listo      { background: var(--verde); color: #1d6b1d; }
+.estado.entregado  { background: #e5e5e5; color: #555; }
+
+/* ----- Mesas (mesero y administrador) ----- */
+.cuadricula-mesas {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.mesa {
+  background: var(--verde);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.mesa.ocupada {
+  background: var(--naranja-claro);
+}
+
+.mesa.elegida {
+  border-color: var(--naranja);
+}
+
+.mesa small {
+  display: block;
+  font-weight: normal;
+  color: var(--gris);
+}
+
+/* ----- Cocina: tres columnas ----- */
+.columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+/* ----- Tablas ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--borde);
+}
+
+td.num,
+th.num {
+  text-align: right;
+}
+
+/* ----- Mensajes ----- */
+.alerta {
+  background: #fff3b8;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.aviso {
+  background: var(--verde);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.error {
+  background: #f8d7d7;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.gris {
+  color: var(--gris);
+}
+
+/* ----- Recibo (tipo tiquete) ----- */
+.recibo {
+  background: white;
+  font-family: "Courier New", monospace;
+  max-width: 340px;
+  margin: 12px auto;
+  border: 1px dashed #888;
+  padding: 16px;
+}
+
+.recibo .linea {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ----- Al imprimir: solo lo que tenga la clase "imprimir" (recibo o tarjeta del QR) ----- */
+@media print {
+  body.pagina-admin * {
+    visibility: hidden;
+  }
+  body.pagina-admin .imprimir,
+  body.pagina-admin .imprimir * {
+    visibility: visible;
+  }
+  body.pagina-admin .imprimir {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: none;
+  }
+}
+
+/* ----- Platos agotados ----- */
+.badge-agotado {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #b71c1c;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.plato.agotado .foto img {
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+.plato.agotado {
+  opacity: 0.85;
+}
+
+/* ----- Pedido que se demora en la cocina ----- */
+.tarjeta.tarde {
+  border: 2px solid #b71c1c;
+  background: #fff1f1;
+}
+
+/* ----- Mesa que pidió la cuenta ----- */
+.mesa.pide-cuenta {
+  border-color: #b71c1c;
+  background: #ffe3e0;
+}
+
+/* ----- Estados de mesa: libre / ocupada / cuenta ----- */
+.mesa.libre { background: var(--verde); }
+.mesa.cuenta {
+  background: #e9ddfb;
+  border-color: #6d28d9;
+}
+
+/* ----- Tiempo de espera en cocina ----- */
+span.tarde { color: #b71c1c; font-weight: bold; }
+.nota-cocina {
+  background: #fff7d6;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 6px;
+}
+
+/* ----- Tarjeta del QR ----- */
+.tarjeta-qr {
+  max-width: 340px;
+  margin: 12px auto;
+  text-align: center;
+}
+
+/* ----- Login del personal ----- */
+.login { max-width: 380px; margin: 24px auto; }
+.fila-botones { display: flex; gap: 8px; flex-wrap: wrap; }
+.tabla-menu td { vertical-align: middle; }
+.num { text-align: right; }
+
+.tarjeta-qr svg { width: 260px; height: 260px; }
+
+/* ----- Portada del restaurante con el QR encima ----- */
+.portada { position: relative; width: 320px; max-width: 100%; margin: 12px auto; line-height: 0; }
+.portada img { width: 100%; height: auto; display: block; }
+.portada-qr {
+  position: absolute;
+  left: 33.6%; top: 53.1%;
+  width: 34.1%; height: 18.5%;
+  background: #fff;
+  padding: 1.2%;
+  box-sizing: border-box;
+}
+.portada-qr svg { width: 100%; height: 100%; display: block; }
+
+/* ----- Mesero: lista de platos para tomar el pedido ----- */
+.lista-platos { margin-bottom: 20px; }
+.titulo-seccion {
+  margin: 18px 0 6px; padding: 6px 12px; background: var(--naranja); color: #fff; border-radius: 8px;
+}
+.fila-plato {
+  display: flex; align-items: center; gap: 10px;
+  background: #fff; border: 1px solid var(--borde); border-radius: 10px;
+  padding: 8px 10px; margin-bottom: 6px;
+}
+.fila-plato.en-pedido { border-color: var(--naranja); background: var(--naranja-claro); }
+.fila-plato.agotado { opacity: 0.55; }
+.fila-info { flex: 1; min-width: 0; }
+.fila-desc { font-size: 12px; }
+.fila-precio { font-weight: bold; color: var(--naranja); white-space: nowrap; }
+.mini-foto { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; }
+.fila-plato .cantidad { display: flex; align-items: center; gap: 8px; }
+.hojas-carta { max-width: 640px; margin: 0 auto 20px; }
+.hojas-carta img { display: block; width: 100%; height: auto; }
+@media (max-width: 520px) {
+  .fila-plato { flex-wrap: wrap; }
+  .fila-info { flex-basis: 60%; }
+}

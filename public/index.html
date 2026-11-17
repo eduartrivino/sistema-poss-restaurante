@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acceso del personal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+<body>
+  <header>
+    <h1 id="nombre">Restaurante</h1>
+    <span>Acceso del personal</span>
+  </header>
+  <main>
+    <div class="login tarjeta">
+      <h2>Entrar a mi módulo</h2>
+      <p class="gris">Cada empleado entra solo a su módulo.</p>
+      <label for="selRol">¿Quién eres?</label>
+      <select id="selRol">
+        <option value="mesero">📝 Mesero</option>
+        <option value="cocina">👨‍🍳 Cocina</option>
+        <option value="caja">💵 Caja</option>
+        <option value="administrador">⚙️ Administrador</option>
+      </select>
+      <label for="inpClave">Clave</label>
+      <input type="password" id="inpClave" placeholder="Escribe tu clave">
+      <div id="msg"></div>
+      <button id="btnEntrar">Entrar</button>
+      <p class="gris" style="font-size:13px; margin-top:14px">
+        Claves de demostración: mesero <b>1111</b> · cocina <b>2222</b> · caja <b>3333</b> · administrador <b>4444</b>
+      </p>
+    </div>
+    <div class="tarjeta login">
+      <h3>¿Eres cliente?</h3>
+      <p class="gris">Los clientes no entran por aquí: escanean el <b>código QR</b> y ven la carta digital.</p>
+      <a href="carta.html" target="_blank">Ver cómo se ve la carta del cliente</a>
+    </div>
+  </main>
+  <script src="js/datos.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
